@@ -170,11 +170,8 @@ class _HomePageState extends State<HomePage> {
                                 Expanded(
                                   child: Transform.scale(
                                     scale: 1.7,
-                                    child: Hero(
-                                      tag: 'screen',
-                                      child: Image.asset(
-                                          'assets/images/IntroScreen/food recive.png'),
-                                    ),
+                                    child: Image.asset(
+                                        'assets/images/IntroScreen/food recive.png'),
                                   ),
                                 ),
                               ],
@@ -254,13 +251,10 @@ class _HomePageState extends State<HomePage> {
                                   flex: 5,
                                   child: Transform.scale(
                                     scale: 1.7,
-                                    child: Hero(
-                                      tag: 'screen',
-                                      child: Transform.scale(
-                                        scale: 0.7,
-                                        child: Image.asset(
-                                            'assets/images/IntroScreen/kitchen-removebg-preview.png'),
-                                      ),
+                                    child: Transform.scale(
+                                      scale: 0.7,
+                                      child: Image.asset(
+                                          'assets/images/IntroScreen/kitchen-removebg-preview.png'),
                                     ),
                                   ),
                                 ),
@@ -339,11 +333,8 @@ class _HomePageState extends State<HomePage> {
                                 Expanded(
                                   child: Transform.scale(
                                     scale: 1.7,
-                                    child: Hero(
-                                      tag: 'screen',
-                                      child: Image.asset(
-                                          'assets/images/IntroScreen/foodOrder-removebg-preview.png'),
-                                    ),
+                                    child: Image.asset(
+                                        'assets/images/IntroScreen/foodOrder-removebg-preview.png'),
                                   ),
                                 ),
                               ],
@@ -373,71 +364,76 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: category
-                                .map(
-                                  (e) => Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, top: 10, bottom: 10),
-                                    child: ElevatedButton(
-                                      style: ButtonStyle(
-                                        elevation: MaterialStateProperty.all(
-                                            (i == category.indexOf(e)) ? 6 : 0),
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                                (i == category.indexOf(e))
-                                                    ? Colors.red
-                                                    : Colors.grey.shade200),
-                                      ),
-                                      onPressed: () {
-                                        setState(() {
-                                          i = category.indexOf(e);
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 18,
-                                              foregroundColor:
+                        Hero(
+                          tag: 'category',
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: category
+                                  .map(
+                                    (e) => Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, top: 10, bottom: 10),
+                                      child: ElevatedButton(
+                                        style: ButtonStyle(
+                                          elevation: MaterialStateProperty.all(
+                                              (i == category.indexOf(e))
+                                                  ? 6
+                                                  : 0),
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
                                                   (i == category.indexOf(e))
-                                                      ? Colors.grey.shade50
-                                                      : Colors.amber.shade300,
-                                              backgroundColor:
-                                                  (i == category.indexOf(e))
-                                                      ? Colors.amber.shade200
-                                                      : Colors.grey.shade300,
-                                              child: Center(
-                                                child: Text(
-                                                  e['img'],
-                                                  style:
-                                                      TextStyle(fontSize: 20),
+                                                      ? Colors.red
+                                                      : Colors.grey.shade200),
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            i = category.indexOf(e);
+                                          });
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(13.0),
+                                          child: Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 18,
+                                                foregroundColor:
+                                                    (i == category.indexOf(e))
+                                                        ? Colors.grey.shade50
+                                                        : Colors.amber.shade300,
+                                                backgroundColor:
+                                                    (i == category.indexOf(e))
+                                                        ? Colors.amber.shade200
+                                                        : Colors.grey.shade300,
+                                                child: Center(
+                                                  child: Text(
+                                                    e['img'],
+                                                    style: const TextStyle(
+                                                        fontSize: 20),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            const SizedBox(
-                                              width: 20,
-                                            ),
-                                            Text(
-                                              e['name'],
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18,
-                                                  color:
-                                                      (i == category.indexOf(e))
-                                                          ? Colors.white
-                                                          : Colors.black),
-                                            )
-                                          ],
+                                              const SizedBox(
+                                                width: 20,
+                                              ),
+                                              Text(
+                                                e['name'],
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                    color: (i ==
+                                                            category.indexOf(e))
+                                                        ? Colors.white
+                                                        : Colors.black),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                )
-                                .toList(),
+                                  )
+                                  .toList(),
+                            ),
                           ),
                         ),
                       ],
@@ -484,95 +480,109 @@ class _HomePageState extends State<HomePage> {
                                   ? Padding(
                                       padding: const EdgeInsets.only(
                                           top: 20, left: 25, bottom: 20),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.3,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.5,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey.shade200,
-                                                offset: const Offset(1, 2),
-                                                blurRadius: 20,
-                                              ),
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(40)),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            SizedBox(
-                                              height: 150,
-                                              width: 200,
-                                              child: Image.asset(
-                                                e.image,
-                                                semanticLabel: e.name,
-                                              ),
-                                            ),
-                                            Text(
-                                              e.name,
-                                              style: TextStyle(
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.w800,
-                                                color: Colors.grey.shade700,
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 6,
-                                            ),
-                                            Text(
-                                              e.category,
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.grey.shade500,
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 20,
-                                            ),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      Alignment.bottomCenter,
-                                                  child: Text(
-                                                    '℈',
-                                                    style: TextStyle(
-                                                      fontSize: 24,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color:
-                                                          Colors.red.shade500,
-                                                    ),
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Text(
-                                                  e.price.toString(),
-                                                  style: TextStyle(
-                                                    fontSize: 32,
-                                                    fontWeight: FontWeight.w900,
-                                                    color: Colors.grey.shade800,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 14,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).pushNamed(
+                                              'DetailPage',
+                                              arguments: e);
+                                        },
+                                        child: Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.3,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.5,
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.grey.shade200,
+                                                  offset: const Offset(1, 2),
+                                                  blurRadius: 20,
                                                 ),
                                               ],
-                                            ),
-                                          ],
+                                              borderRadius:
+                                                  BorderRadius.circular(40)),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              SizedBox(
+                                                height: 150,
+                                                width: 200,
+                                                child: Hero(
+                                                  tag: e.name,
+                                                  child: Image.asset(
+                                                    e.image,
+                                                    semanticLabel: e.name,
+                                                  ),
+                                                ),
+                                              ),
+                                              Text(
+                                                e.name,
+                                                style: TextStyle(
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.w800,
+                                                  color: Colors.grey.shade700,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 6,
+                                              ),
+                                              Text(
+                                                e.category,
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.grey.shade500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        Alignment.bottomCenter,
+                                                    child: Text(
+                                                      '℈',
+                                                      style: TextStyle(
+                                                        fontSize: 24,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color:
+                                                            Colors.red.shade500,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Text(
+                                                    e.price.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: 32,
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      color:
+                                                          Colors.grey.shade800,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 14,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     )
